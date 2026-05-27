@@ -54,9 +54,9 @@ export default function Home() {
   if (phase === 'result') {
     return (
       <main className="flex h-screen w-screen flex-col items-center justify-center bg-black gap-4">
-        <p className="text-zinc-500 text-sm tracking-widest uppercase">Warner?</p>
+        <p className="text-zinc-500 text-sm tracking-widest uppercase">Dá assistir em live?</p>
         <div className="select-none">
-          {result === 'YES' ? (
+          {result !== 'YES' ? (
             <svg viewBox="0 0 100 100" className="w-48 h-48 text-green-500" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="50" cy="50" r="46" />
               <polyline points="28,52 44,68 72,34" />
@@ -135,7 +135,7 @@ export default function Home() {
             </div>
 
             <button onClick={reset} className="text-sm text-zinc-600 hover:text-zinc-400 transition underline underline-offset-4">
-              Search again
+              Procurar novamente
             </button>
           </>
         )}
@@ -149,7 +149,7 @@ export default function Home() {
       <form onSubmit={handleSearch} className="w-full max-w-md flex gap-2">
         <input
           type="text"
-          placeholder="Movie Title / Título do Filme..."
+          placeholder="Título do Filme..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           disabled={phase === 'loading-search'}
@@ -160,7 +160,7 @@ export default function Home() {
           disabled={phase === 'loading-search'}
           className="px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-zinc-200 transition disabled:opacity-50 cursor-pointer"
         >
-          {phase === 'loading-search' ? '...' : 'Check'}
+          {phase === 'loading-search' ? '...' : 'Verificar'}
         </button>
       </form>
     </main>
